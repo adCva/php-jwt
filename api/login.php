@@ -34,6 +34,9 @@ if (!password_verify($loginRequestData->password, $data['password'])) {
 } else {
     $secret_key = "sec!ReT423*&";
     $payload = array(
+        "ist" => date("Y-m-d"),
+        "iss" => "localhost",
+        "uid" => $data['id'],
         "name" => $data['name'],
         "expires" => time() + 3600
     );
@@ -46,5 +49,3 @@ if (!password_verify($loginRequestData->password, $data['password'])) {
         "message" => "success"
     ]);
 }
-
-// https://github.com/jinolacson/login-jwt-react-php/blob/master/server-jwt/login.php

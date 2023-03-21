@@ -18,9 +18,14 @@ function Login() {
     e.preventDefault();
 
     axios.post("http://localhost/react-login/login.php", data).then((res) => {
-      console.log(res);
-    })
+      navigate("/dash", {
+        state: {
+          token: res.data.token
+        }
+      });
+    }).catch (err => console.log(err))
   };
+
 
   return (
     <div className='container mt-5'>
