@@ -11,12 +11,13 @@ $conn = $db->connect();
 
 
 $newUser = json_decode(file_get_contents("php://input"));
-$sql = "INSERT INTO users (id, name, username, email, password) VALUES (null, :name, :username, :email, :password)";
+$sql = "INSERT INTO users (id, name, username, email, gender, password) VALUES (null, :name, :username, :email, :gender, :password)";
 $stmt = $conn->prepare($sql);
 
 $stmt->bindParam(":name", $newUser->name);
 $stmt->bindParam(":username", $newUser->username);
 $stmt->bindParam(":email", $newUser->email);
+$stmt->bindParam(":gender", $newUser->gender);
 
 $passwordHash = password_hash($newUser->password, PASSWORD_DEFAULT);
 $stmt->bindParam(":password", $passwordHash);

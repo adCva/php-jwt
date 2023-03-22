@@ -10818,4 +10818,108 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.center-form-container {
+  width: 90%;
+  max-width: 450px;
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-wrapper .navbar-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  padding: 1rem 0;
+}
+@media (min-width: 1000px) {
+  .navbar-wrapper .navbar-container .flex-container {
+    display: flex;
+    gap: 2rem;
+  }
+}
+.navbar-wrapper .navbar-container .flex-container .intro-container {
+  margin: 1rem 0;
+  color: #ececec;
+}
+.navbar-wrapper .navbar-container .flex-container .intro-container h1, .navbar-wrapper .navbar-container .flex-container .intro-container .h1 {
+  font-size: 1rem;
+  letter-spacing: -0.3px;
+}
+.navbar-wrapper .navbar-container .flex-container .intro-container p {
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+}
+.navbar-wrapper .navbar-container .flex-container .register-container,
+.navbar-wrapper .navbar-container .flex-container .login-container {
+  background-color: #ffffff;
+  color: #333333;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  text-align: center;
+}
+@media (min-width: 1000px) {
+  .navbar-wrapper .navbar-container .flex-container .register-container,
+  .navbar-wrapper .navbar-container .flex-container .login-container {
+    position: initial;
+  }
+}
+.navbar-wrapper .navbar-container .flex-container .register-container .form-container,
+.navbar-wrapper .navbar-container .flex-container .login-container .form-container {
+  margin: 2rem 0;
+}
+.navbar-wrapper .navbar-container .flex-container .register-container p,
+.navbar-wrapper .navbar-container .flex-container .login-container p {
+  font-size: 0.9rem;
+}
+.navbar-wrapper .navbar-container .flex-container .register-container p button,
+.navbar-wrapper .navbar-container .flex-container .login-container p button {
+  background: transparent;
+  color: #047aed;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #f4f4f4;
+}
+
+.dash {
+  width: 100%;
+  height: 100vh;
+  min-height: 100dvh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("../bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: #047aed;
+  color: #ffffff;
+  height: 50vh;
+  height: 50dvh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .fake-container {
+  width: 90%;
+  max-width: 1000px;
+  padding: 1rem 0;
 }/*# sourceMappingURL=style.css.map */

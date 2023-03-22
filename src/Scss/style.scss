@@ -1,1 +1,41 @@
 @import "~bootstrap/scss/bootstrap";
+@import "config";
+@import "navbar";
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.dash {
+    width: 100%;
+    height: 100vh;
+    min-height: 100dvh;
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0.15)), url("../bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: #047aed;
+    color: #ffffff;
+    height: 50vh;
+    height: 50dvh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fake-container {
+        width: 90%;
+        max-width: 1000px;
+        padding: 1rem 0;
+    }
+}

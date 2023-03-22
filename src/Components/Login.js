@@ -2,51 +2,48 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
 
 function Login() {
-  const navigate = useNavigate();
-  const [data, setData] = useState({
-    email: "",
-    password: ""
-  });
-  
-  const handleChange = (e) => {
-    setData({...data, [e.target.name]: e.target.value});
-  };
+    const navigate = useNavigate();
+    const cookies = new Cookies();
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleChange = (e) => {
+        setLoginData({...loginData, [e.target.name]: e.target.value});
+    };
 
-    axios.post("http://localhost/react-login/login.php", data).then((res) => {
-      navigate("/dash", {
-        state: {
-          token: res.data.token
-        }
-      });
-    }).catch (err => console.log(err))
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-
-  return (
-    <div className='container mt-5'>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" name="email" placeholder="Enter email" onChange={handleChange}/>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Password" onChange={handleChange}/>
-        </Form.Group>
+        axios.post("http://localhost/react-login/login", loginData).then((res) => {
+            console.log(res);
+            cookies.set('token', res.data.token, { path: '/', secure: true, sameSite: "None" });
+            console.log(cookies.get('token'));
+            navigate("/home");
+        }).catch (err => console.log(err))
+    };
 
 
-        <div className="d-grid gap-2">
-          <Button variant="primary" type="submit">Submit</Button>
-        </div>
-      </Form>
-    </div>
-  )
+    return (
+        <Form onSubmit={handleSubmit} >
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Control type="email" name="email" placeholder="Enter email" onChange={handleChange} />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Control type="password" name="password" placeholder="Password" onChange={handleChange} />
+            </Form.Group>
+
+            <div className="d-grid gap-2">
+                <Button variant="primary" type="submit">Log In</Button>
+            </div>
+        </Form>
+    )
 }
 
 export default Login;

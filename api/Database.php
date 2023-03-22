@@ -8,7 +8,7 @@ Class Database {
     private string $user = "root";
     private string $password = "";
 
-    public function connect() {
+    public function connect() : PDO {
         try {
             $connection = new PDO('mysql:host=' .$this->server .';dbname=' . $this->dbname, $this->user, $this->password);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
